@@ -104,7 +104,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
-      //allergy: {value: ''},
+      allergy: {value: ''},
     };
   }
 
@@ -150,7 +150,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    //$('#allergy').html(p.allergy);
+    $('#allergy').html(p.allergy);
   };
 
 })(window);
