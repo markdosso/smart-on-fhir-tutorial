@@ -84,6 +84,7 @@
         $.when(pt, allergy).done(function(patient, allergy) {
           console.log('Allergy', allergy);
           
+          p.allergy = allergy[0];
           
           ret.resolve(p);
         });
@@ -113,6 +114,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
+      allergy: {value: ''},
     };
   }
 
@@ -157,6 +159,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
+    $('allergy').html(p.allergy);
   };
 
 })(window);
