@@ -65,7 +65,7 @@
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
           p.temp = getQuantityValueAndUnit(temp[0]);
-          p.allergy = allergy[1];
+          p.allergy = 'test';
           
 
           if (typeof systolicbp != 'undefined')  {
