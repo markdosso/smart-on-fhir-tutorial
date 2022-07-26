@@ -27,11 +27,7 @@
         
          var allergy = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
-                    query: {
-                      clinical-status: 'active'{
-                       
-                      }
-                    }
+                    
                   });
         
         console.log('Allergy', arguments);
@@ -39,6 +35,17 @@
 
         $.when(pt, obv).fail(onError);
         
+        /*
+        $.when(pt, allergy).done(function(patient, allergy) {
+          var str = '';
+          
+          allergy.forEach(function(item, index) {
+            str += index + ".";
+            str += item.clinicalStatus;
+            str += 
+          }
+        }
+        */
         
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
