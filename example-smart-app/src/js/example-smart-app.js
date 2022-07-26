@@ -30,7 +30,7 @@
                     
                   });
         
-        console.log('Allergy', arguments);
+        console.log('Allergy', allergy);
         
 
         $.when(pt, obv).fail(onError);
