@@ -149,7 +149,7 @@
     }
   }
 
-  window.drawVisualization = function(p) {
+  window.drawVisualization = function(a) {
     $('#allergy').html(a.allergy);
   };
   
