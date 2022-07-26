@@ -78,19 +78,17 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          ret.resolve(p);
+          
         });
         
 
         $.when(pt, allergy).done(function(patient, allergy) {
-          var a  = {
-          allergy: {value: ''},
-          }
+          
           console.log('Allergy', allergy);
           
-          a.allergy = allergy[0];
+          p.allergy = allergy[1];
           
-          ret.resolve(a);
+         ret.resolve(p);
         });
         
         
@@ -118,6 +116,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
+      allergy: {value: ''},
     };
   }
 
@@ -148,10 +147,6 @@
       return undefined;
     }
   }
-
-  window.drawVisualization = function(a) {
-    $('#allergy').html(a.allergy);
-  };
   
   
   window.drawVisualization = function(p) {
@@ -167,7 +162,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    
+    $('#allergy').html(p.allergy);
   };
 
 })(window);
