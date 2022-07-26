@@ -65,7 +65,15 @@
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
           p.temp = getQuantityValueAndUnit(temp[0]);
-          p.allergy = 'test';
+          
+          var str = '';
+          
+          allergy.forEach(function(value, index)) {
+                str += value;          
+          }
+          
+          p.allergy = str;
+          
           
 
           if (typeof systolicbp != 'undefined')  {
