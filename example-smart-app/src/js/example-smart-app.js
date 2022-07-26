@@ -88,7 +88,7 @@
           }
           console.log('Allergy', allergy);
           
-          p.allergy = allergy[0];
+          a.allergy = allergy[0];
           
           ret.resolve(a);
         });
