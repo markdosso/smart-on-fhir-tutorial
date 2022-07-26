@@ -11,7 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-        var p = defaultPatient();
+        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -37,6 +37,7 @@
         $.when(pt, allergy).fail(onError);
         
         $.when(pt, obv).done(function(patient, obv) {
+          var p = defaultPatient();
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -82,11 +83,14 @@
         
 
         $.when(pt, allergy).done(function(patient, allergy) {
+          var a  = {
+          allergy: {value: ''},
+          }
           console.log('Allergy', allergy);
           
           p.allergy = allergy[0];
           
-          ret.resolve(p);
+          ret.resolve(a);
         });
         
         
@@ -114,7 +118,6 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
-      allergy: {value: ''},
     };
   }
 
@@ -159,7 +162,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    $('#allergy').html(p.allergy);
+    $('#allergy').html(a.allergy);
   };
 
 })(window);
