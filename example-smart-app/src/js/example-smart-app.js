@@ -18,7 +18,7 @@
                         $or: ['http://loinc.org|8302-2',
                               'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
-                              'http://loinc.org|85354-9']
+                              'http://loinc.org|85354-9', 'http://loinc.org|8310-5']
                       }
                     }
                   });
@@ -31,6 +31,7 @@
 
           var fname = '';
           var lname = '';
+         
 
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
@@ -42,6 +43,8 @@
           var diastolicbp = getBloodPressureValue(byCodes('85354-9'),'8462-4');
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
+          
+          var temp = byCodes(8310-5);; // new
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -49,6 +52,8 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
+          p.temp = getQuantityValueAndUnit(temp);
+          
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -84,6 +89,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      temp: {value: ''},
     };
   }
 
@@ -127,6 +133,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#temp').html(p.temp);
   };
 
 })(window);
