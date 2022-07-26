@@ -68,9 +68,9 @@
           
           var str = '';
           
-          allergy.forEach(function(value, index)) {
+          allergy.forEach(function(value, index) {
                 str += value;          
-          }
+          });
           
           p.allergy = str;
           
