@@ -150,6 +150,11 @@
   }
 
   window.drawVisualization = function(p) {
+    $('#allergy').html(a.allergy);
+  };
+  
+  
+  window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
@@ -162,7 +167,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    $('#allergy').html(a.allergy);
+    
   };
 
 })(window);
