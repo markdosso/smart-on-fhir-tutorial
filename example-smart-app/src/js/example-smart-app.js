@@ -11,6 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        var p = defaultPatient();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -26,7 +27,10 @@
         
         var allergy = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
-                    
+                    query: {
+                      clinical-status: { 'active'
+                      }
+                    }
                   });
         
         
@@ -56,7 +60,7 @@
           
           var temp = byCodes('8310-5'); // new
 
-          var p = defaultPatient();
+          
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
