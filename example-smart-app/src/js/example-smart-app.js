@@ -24,28 +24,16 @@
                   });
         
         
-        
-         var allergy = smart.patient.api.fetchAll({
+        var allergy = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     
                   });
         
-        console.log('Allergy', allergy);
         
 
         $.when(pt, obv).fail(onError);
         
-        /*
-        $.when(pt, allergy).done(function(patient, allergy) {
-          var str = '';
-          
-          allergy.forEach(function(item, index) {
-            str += index + ".";
-            str += item.clinicalStatus;
-            str += 
-          }
-        }
-        */
+        $.when(pt, allergy).fail(onError);
         
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
@@ -90,6 +78,18 @@
 
           ret.resolve(p);
         });
+        
+
+        $.when(pt, allergy).done(function(patient, allergy) {
+          console.log('Allergy', allergy);
+          
+          
+          ret.resolve(p);
+        });
+        
+        
+        
+        
       } else {
         onError();
       }
