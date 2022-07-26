@@ -78,7 +78,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
-          
+          ret.resolve(p);
         });
         
 
@@ -86,7 +86,7 @@
           
           console.log('Allergy', allergy);
           
-          p.allergy = allergy[1];
+          //p.allergy = allergy[1];
           
          ret.resolve(p);
         });
@@ -116,7 +116,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
-      allergy: {value: ''},
+      //allergy: {value: ''},
     };
   }
 
@@ -162,7 +162,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temp').html(p.temp);
-    $('#allergy').html(p.allergy);
+    //$('#allergy').html(p.allergy);
   };
 
 })(window);
