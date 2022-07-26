@@ -11,7 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-        
+        var p = defaultPatient();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -37,7 +37,7 @@
         $.when(pt, allergy).fail(onError);
         
         $.when(pt, obv).done(function(patient, obv) {
-          var p = defaultPatient();
+         
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
