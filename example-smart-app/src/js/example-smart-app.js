@@ -69,7 +69,7 @@
           var str = '';
           
           allergy.forEach(function(value, index) {
-                str += value;          
+                str += value.patient.display;          
           });
           
           p.allergy = str;
